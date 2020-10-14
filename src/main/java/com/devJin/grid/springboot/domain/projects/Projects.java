@@ -32,7 +32,7 @@ public class Projects {
         this.subPicture = subPicture;
     }
 
-    public void update(String title, String content, String mainPicture, String subPicture){
+    public void update(String title, String subTitle, String content, String mainPicture, String subPicture){
         this.title = title;
         this.subTitle = subTitle;
         this.content = content;

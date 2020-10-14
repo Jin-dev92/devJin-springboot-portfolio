@@ -52,7 +52,9 @@ var project = {
             var data = {
                 title :  $('.project-save-title').val(),
                 subTitle : $('.project-save-subTitle').val(),
-                content : $('.project-save-content').val()
+                content : $('.project-save-content').val(),
+                mainPicture : $('.mainPicture').val(),
+                subPicture : $('.subPicture').val()
             };
             $.ajax({
                 type: 'POST',
@@ -61,13 +63,10 @@ var project = {
                 contentType:'application/json; charset=utf-8',
                 data : JSON.stringify(data)
             }).done(function() {
-                console.log("프로젝트가 추가되었습니다.");
+                alert("프로젝트가 추가되었습니다.");
                 window.location.href = '/';
             }).fail(function (error) {
                 alert(JSON.stringify(error));
-                console.log(data.title);
-                console.log(data.subTitle);
-                console.log(data.content);
             });
     },
 }

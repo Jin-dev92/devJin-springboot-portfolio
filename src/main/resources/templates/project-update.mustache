@@ -3,14 +3,14 @@
     <form action="" method="post" enctype="multipart/form-data">
         <input type="text" class="project-save-title" name="title" placeholder="제목" value=""><br>
         <input type="text" class="project-save-subTitle" name="subTitle" placeholder="부제목" value=""><br>
-        <textarea name="content" class="project-save-content" cols="50" rows="10" placeholder="설명" ></textarea><br>
-        <label for="썸네일용 사진"></label><input type="file" name="mainPicture" id="projectFile" value="" class="mainPicture"><br>
-        <label for="그 외 사진"></label><input multiple="multiple" name="subPicture" id="projectFile" type="file" value="" class="subPicture">
+        <textarea name="content" class="project-save-content" cols="50" rows="10" placeholder="설명"></textarea><br>
+        <label for="썸네일용 사진"></label><input type="file" name="mainPicture" id="projectFile"><br>
+        <label for="그 외 사진"></label><input multiple="multiple" name="subPicture" id="projectFile" type="file">
     </form>
     <span class="button-wrapper">
-        <button class="btn btn-primary btn-project-save">생성</button>
-        <button class="btn btn_cancel">취소</button>
+<!--        <button class="btn btn-primary btn-project-save">생성</button>-->
         <button class="btn btn-secondary btn_edit">수정</button>
+        <button class="btn btn_cancel">취소</button>
         <button class="btn btn-danger btn_delete">삭제</button>
     </span>
 </div>

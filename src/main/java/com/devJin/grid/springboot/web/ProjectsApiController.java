@@ -2,10 +2,9 @@ package com.devJin.grid.springboot.web;
 
 import com.devJin.grid.springboot.service.projects.ProjectService;
 import com.devJin.grid.springboot.web.dto.ProjectSaveRequestDto;
+import com.devJin.grid.springboot.web.dto.ProjectsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,6 +16,9 @@ public class ProjectsApiController {
         return projectService.save(requestDto);
     }
     // update
-
+    @PutMapping("/api/project/{id}")
+    public Long update(@PathVariable Long id, ProjectsUpdateRequestDto requestDto){
+        return projectService.update(id,requestDto);
+    }
     // delete
 }
