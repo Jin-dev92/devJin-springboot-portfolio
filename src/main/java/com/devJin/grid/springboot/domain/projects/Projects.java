@@ -16,13 +16,17 @@ public class Projects {
     @Column(nullable = false)
     private String title;
     @Column(nullable = false)
+    private String subTitle;
+    @Column(nullable = false)
     private String content;
+
     private String mainPicture;
     private String subPicture;
 
     @Builder
-    public Projects(String title, String content, String mainPicture, String subPicture) {
+    public Projects(String title, String subTitle, String content, String mainPicture, String subPicture) {
         this.title = title;
+        this.subTitle = subTitle;
         this.content = content;
         this.mainPicture = mainPicture;
         this.subPicture = subPicture;
@@ -30,6 +34,7 @@ public class Projects {
 
     public void update(String title, String content, String mainPicture, String subPicture){
         this.title = title;
+        this.subTitle = subTitle;
         this.content = content;
         this.mainPicture = mainPicture;
         this.subPicture = subPicture;

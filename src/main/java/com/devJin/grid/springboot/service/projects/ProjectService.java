@@ -1,4 +1,4 @@
-package com.devJin.grid.springboot.service.post;
+package com.devJin.grid.springboot.service.projects;
 
 import com.devJin.grid.springboot.domain.projects.Projects;
 import com.devJin.grid.springboot.domain.projects.ProjectsRepository;
@@ -14,14 +14,14 @@ public class ProjectService {
     private final ProjectsRepository projectsRepository;
 
     @Transactional
-    public void save(ProjectSaveRequestDto projectSaveRequestDto){
-        projectsRepository.save(projectSaveRequestDto.toEntity());
+    public Long save(ProjectSaveRequestDto projectSaveRequestDto){
+        return projectsRepository.save(projectSaveRequestDto.toEntity()).getId();
     }
 
     @Transactional
     public void update(ProjectsUpdateRequestDto dto, Long id){
         Projects projects = projectsRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 프로젝트가 없습니다."));
-        projects.update(dto.getTitle(),dto.getContent(),dto.getMainPicture(),dto.getSubPicture());
+//        projects.update(dto.getTitle(),dto.getContent(),dto.getMainPicture(),dto.getSubPicture());
     }
 
     @Transactional

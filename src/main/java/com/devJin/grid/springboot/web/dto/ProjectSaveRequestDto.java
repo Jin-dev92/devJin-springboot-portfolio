@@ -10,13 +10,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProjectSaveRequestDto {
     private String title;
+    private String subTitle;
     private String content;
     private String mainPicture;
     private String subPicture;
 
     @Builder
-    public ProjectSaveRequestDto(String title, String content, String mainPicture, String subPicture) {
+    public ProjectSaveRequestDto(String title, String subTitle, String content, String mainPicture, String subPicture) {
         this.title = title;
+        this.subTitle = subTitle;
         this.content = content;
         this.mainPicture = mainPicture;
         this.subPicture = subPicture;
@@ -25,6 +27,7 @@ public class ProjectSaveRequestDto {
     public Projects toEntity(){ // service 에서 save 메소드를 사용할 때 엔티티로 변환을 해줘야됨
         return   Projects.builder()
                     .title(title)
+                    .subTitle(subTitle)
                     .content(content)
                     .mainPicture(mainPicture)
                     .subPicture(subPicture)
