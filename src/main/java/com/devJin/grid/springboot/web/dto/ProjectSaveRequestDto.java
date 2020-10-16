@@ -4,24 +4,23 @@ import com.devJin.grid.springboot.domain.projects.Projects;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-
+@Setter
 @Getter
 @NoArgsConstructor
 public class ProjectSaveRequestDto {
     private String title;
     private String subTitle;
     private String content;
-    private String mainPicture;
-    private String subPicture;
+    private Long fileId;
 
     @Builder
-    public ProjectSaveRequestDto(String title, String subTitle, String content, String mainPicture, String subPicture) {
+    public ProjectSaveRequestDto(String title, String subTitle, String content, Long fileId) {
         this.title = title;
         this.subTitle = subTitle;
         this.content = content;
-        this.mainPicture = mainPicture;
-        this.subPicture = subPicture;
+        this.fileId = fileId;
     }
 
     public Projects toEntity(){ // service 에서 save 메소드를 사용할 때 엔티티로 변환을 해줘야됨
@@ -29,8 +28,7 @@ public class ProjectSaveRequestDto {
                     .title(title)
                     .subTitle(subTitle)
                     .content(content)
-                    .mainPicture(mainPicture)
-                    .subPicture(subPicture)
+                    .fileId(fileId)
                     .build();
     }
 }

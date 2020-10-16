@@ -9,15 +9,15 @@ public class ProjectsListDto {
     private String title;
     private String subTitle;
     private String content;
-    private String mainPicture;
-    private String subPicture;
+//    private String mainPicture;
+//    private String subPicture;
 
     public ProjectsListDto(Projects projects) {
         this.id = projects.getId();
         this.title = projects.getTitle();
         this.subTitle = projects.getSubTitle();
         this.content = projects.getContent();
-        this.mainPicture = projects.getMainPicture();
-        this.subPicture = projects.getSubPicture();
+//        this.mainPicture = projects.getMainPicture();
+//        this.subPicture = projects.getSubPicture();
     }
 }

@@ -19,24 +19,22 @@ public class Projects {
     private String subTitle;
     @Column(nullable = false)
     private String content;
-
-    private String mainPicture;
-    private String subPicture;
+    private String thumbnail;
+    private Long fileId;
 
     @Builder
-    public Projects(String title, String subTitle, String content, String mainPicture, String subPicture) {
+    public Projects(String title, String subTitle, String content, Long fileId) {
         this.title = title;
         this.subTitle = subTitle;
         this.content = content;
-        this.mainPicture = mainPicture;
-        this.subPicture = subPicture;
+        this.fileId = fileId;
     }
 
-    public void update(String title, String subTitle, String content, String mainPicture, String subPicture){
+
+    public void update(String title, String subTitle, String content, Long fileId){
         this.title = title;
         this.subTitle = subTitle;
         this.content = content;
-        this.mainPicture = mainPicture;
-        this.subPicture = subPicture;
+        this.fileId = fileId;
     }
 }

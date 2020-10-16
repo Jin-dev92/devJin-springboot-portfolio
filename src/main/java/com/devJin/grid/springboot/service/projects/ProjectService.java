@@ -25,7 +25,7 @@ public class ProjectService {
     @Transactional
     public Long update(Long id,ProjectsUpdateRequestDto requestDto){
         Projects projects = projectsRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 프로젝트가 없습니다."));
-        projects.update(requestDto.getTitle(),requestDto.getSubTitle(),requestDto.getContent(),requestDto.getMainPicture(),requestDto.getSubPicture());
+        projects.update(requestDto.getTitle(),requestDto.getSubTitle(),requestDto.getContent(),requestDto.getFileId());
         return id;
     }
 
@@ -36,6 +36,7 @@ public class ProjectService {
 
     @Transactional(readOnly = true)
     public List<ProjectsListDto> findAllDesc(){
-        return projectsRepository.findAllByDesc().stream().map(ProjectsListDto::new).collect(Collectors.toList());
+//        return projectsRepository.findAllByDesc().stream().map(ProjectsListDto::new).collect(Collectors.toList());
+        return null;
     }
 }

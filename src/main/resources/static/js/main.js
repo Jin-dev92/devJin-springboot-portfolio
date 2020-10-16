@@ -53,8 +53,6 @@ var project = {
                 title :  $('.project-save-title').val(),
                 subTitle : $('.project-save-subTitle').val(),
                 content : $('.project-save-content').val(),
-                mainPicture : $('.mainPicture').val(),
-                subPicture : $('.subPicture').val()
             };
             $.ajax({
                 type: 'POST',
