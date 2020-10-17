@@ -11,12 +11,14 @@ public class ProjectsUpdateRequestDto {
     private String subTitle;
     private String content;
     private Long fileId;
+    private String thumbnail;
 
     @Builder
-    public ProjectsUpdateRequestDto(String title, String subTitle, String content,Long fileId) {
+    public ProjectsUpdateRequestDto(String title, String subTitle, String content, Long fileId, String thumbnail) {
         this.title = title;
         this.subTitle = subTitle;
         this.content = content;
         this.fileId = fileId;
+        this.thumbnail = thumbnail;
     }
 }
