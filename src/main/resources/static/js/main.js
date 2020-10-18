@@ -49,23 +49,25 @@ var project = {
     });
     },
     save : function(){
-            var data = {
-                title :  $('.project-save-title').val(),
-                subTitle : $('.project-save-subTitle').val(),
-                content : $('.project-save-content').val(),
-            };
-            $.ajax({
-                type: 'POST',
-                url: '/api/projects',
-                dataType: 'json',
-                contentType:'application/json; charset=utf-8',
-                data : JSON.stringify(data)
-            }).done(function() {
-                alert("프로젝트가 추가되었습니다.");
-                window.location.href = '/';
-            }).fail(function (error) {
-                alert(JSON.stringify(error));
-            });
+    var formData = new FormData($('#project-save-form')[0]);
+//    for(var pair of formData.entries()){
+//        console.log(pair[0]+ "," + pair[1]);
+//    }
+    $.ajax({
+        type: "POST",
+        url: "/api/projects",
+        enctype: 'multipart/form-data',
+        data: formData,
+        processData : false,
+        contentType :false,
+        cache : false,
+        success: function (data) {
+            console.log(data);
+        },
+        error : function(e){
+            console.log(e);
+        }
+    });
     },
 }
 var main = {

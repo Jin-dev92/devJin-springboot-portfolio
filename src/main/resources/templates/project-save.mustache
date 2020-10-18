@@ -1,11 +1,11 @@
 {{>layout/header}}
 <div class="container project-save-wrapper">
-    <form method="post" enctype="multipart/form-data" id="project-save-form">
-        <input type="text" class="project-save-title" name="title" placeholder="제목" value=""><br>
-        <input type="text" class="project-save-subTitle" name="subTitle" placeholder="부제목" value=""><br>
+    <form method="post" id="project-save-form"  enctype="multipart/form-data">
+        <input type="text" class="project-save-title" name="title" placeholder="제목"><br>
+        <input type="text" class="project-save-subTitle" name="subTitle" placeholder="부제목"><br>
         <textarea name="content" class="project-save-content" cols="50" rows="10" placeholder="설명" ></textarea><br>
-        <label for="썸네일용 사진"></label><input type="file" name="files" id="projectFile" value="" class="mainPicture"><br>
-        <label for="그 외 사진"></label><input multiple="multiple" name="" id="projectFile" type="file" value="" class="multiple_File">
+        <label for="썸네일용 사진"></label><input type="file" name="thumbnail"><br>
+        <label for="그 외 사진"></label><input multiple="multiple" name="fileList" type="file" class="multiple_File">
     </form>
     <span class="button-wrapper">
         <button class="btn btn-primary btn-project-save">생성</button>

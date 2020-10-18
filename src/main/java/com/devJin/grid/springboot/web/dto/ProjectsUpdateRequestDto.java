@@ -10,15 +10,17 @@ public class ProjectsUpdateRequestDto {
     private String title;
     private String subTitle;
     private String content;
-    private Long fileId;
+    private int type;
     private String thumbnail;
+    private Long fileId;
 
     @Builder
-    public ProjectsUpdateRequestDto(String title, String subTitle, String content, Long fileId, String thumbnail) {
+    public ProjectsUpdateRequestDto(String title, String subTitle, String content, int type, String thumbnail, Long fileId) {
         this.title = title;
         this.subTitle = subTitle;
         this.content = content;
-        this.fileId = fileId;
+        this.type = type;
         this.thumbnail = thumbnail;
+        this.fileId = fileId;
     }
 }

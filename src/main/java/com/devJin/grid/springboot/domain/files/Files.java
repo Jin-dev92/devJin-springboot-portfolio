@@ -15,7 +15,6 @@ import javax.persistence.*;
 public class Files extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @JoinColumn(name = "project_id")
     private Long id;
     @Column(nullable = false)
     private String originFileName;

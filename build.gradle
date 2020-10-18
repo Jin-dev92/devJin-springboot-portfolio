@@ -33,7 +33,11 @@ dependencies {
     compile('com.h2database:h2')
     compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.5.0'
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.5.0'
-
+    /*
+        multipart 업로드
+    * */
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
     /* 테스트용 의존성
     * */
     testCompile('org.springframework.boot:spring-boot-starter-test')
