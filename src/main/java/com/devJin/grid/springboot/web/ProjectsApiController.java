@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import java.util.LinkedList;
+import java.util.List;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -18,8 +21,17 @@ public class ProjectsApiController {
     private final FilesService filesService;
     // save
     @PostMapping(value = "/api/projects",headers = ("content-type=multipart/*"))
-    public Long save(ProjectSaveRequestDto requestDto , @RequestPart(value = "thumbnail",required = false)MultipartFile thumbnail, @RequestPart(value = "fileList",required = false) MultipartHttpServletRequest files) {
-        return projectService.save(requestDto,thumbnail,files);
+    public Long save(ProjectSaveRequestDto requestDto , MultipartHttpServletRequest inputFiles) {
+        List<MultipartFile> fileList = inputFiles.getFiles("fileList");
+        MultipartFile thumbnail = inputFiles.getFile("thumbnail");
+        assert thumbnail != null;
+        System.out.println(thumbnail.getOriginalFilename());
+        for (MultipartFile mf : fileList){
+                System.out.println(mf.getOriginalFilename());
+        }
+
+        return projectService.save(requestDto);
+//        return null;
     }
     // update
     @PutMapping("/api/project/{id}")

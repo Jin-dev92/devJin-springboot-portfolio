@@ -29,30 +29,30 @@ public class ProjectService {
     private final FilesRepository filesRepository;
     private final FilesService filesService;
     @Transactional
-    public Long save(ProjectSaveRequestDto projectSaveRequestDto , MultipartFile thumbnail, MultipartHttpServletRequest mtfRequest){
-        System.out.println(mtfRequest);
-        List<MultipartFile> fileList = mtfRequest.getFiles("files");
-        String path = "C:\\image\\";
-        File fileDir = new File(path);
-        if (!fileDir.exists())fileDir.mkdirs();
-
-        for (MultipartFile mf : fileList){
-            String originFileName = mf.getOriginalFilename();
-            long fileSize = mf.getSize();
-
-            System.out.println("originFileName : " + originFileName);
-            System.out.println("fileSize : " + fileSize);
-
-            String safeFile = path + System.currentTimeMillis() + originFileName;
-            System.out.println("safeFile : " + safeFile);
-            try {
-                mf.transferTo(new File(safeFile));
-            }
-            catch (IllegalStateException | IOException e) {
-                
-                e.printStackTrace();
-            }
-        }
+    public Long save(ProjectSaveRequestDto projectSaveRequestDto){
+//        System.out.println(mtfRequest);
+//        List<MultipartFile> fileList = mtfRequest.getFiles("files");
+//        String path = "C:\\image\\";
+//        File fileDir = new File(path);
+//        if (!fileDir.exists())fileDir.mkdirs();
+//
+//        for (MultipartFile mf : fileList){
+//            String originFileName = mf.getOriginalFilename();
+//            long fileSize = mf.getSize();
+//
+//            System.out.println("originFileName : " + originFileName);
+//            System.out.println("fileSize : " + fileSize);
+//
+//            String safeFile = path + System.currentTimeMillis() + originFileName;
+//            System.out.println("safeFile : " + safeFile);
+//            try {
+//                mf.transferTo(new File(safeFile));
+//            }
+//            catch (IllegalStateException | IOException e) {
+//
+//                e.printStackTrace();
+//            }
+//        }
 
 //        try {
 //            String origFilename = files.getOriginalFilename();
@@ -101,6 +101,4 @@ public class ProjectService {
 //        return projectsRepository.findAllByDesc().stream().map(ProjectsListDto::new).collect(Collectors.toList());
         return null;
     }
-
 }
-;

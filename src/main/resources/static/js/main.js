@@ -50,9 +50,9 @@ var project = {
     },
     save : function(){
     var formData = new FormData($('#project-save-form')[0]);
-//    for(var pair of formData.entries()){
-//        console.log(pair[0]+ "," + pair[1]);
-//    }
+    for(var pair of formData.entries()){
+        console.log(pair[0]+ "," + pair[1]);
+    }
     $.ajax({
         type: "POST",
         url: "/api/projects",
