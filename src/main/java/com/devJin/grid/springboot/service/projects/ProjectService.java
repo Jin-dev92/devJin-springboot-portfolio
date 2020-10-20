@@ -30,57 +30,6 @@ public class ProjectService {
     private final FilesService filesService;
     @Transactional
     public Long save(ProjectSaveRequestDto projectSaveRequestDto){
-//        System.out.println(mtfRequest);
-//        List<MultipartFile> fileList = mtfRequest.getFiles("files");
-//        String path = "C:\\image\\";
-//        File fileDir = new File(path);
-//        if (!fileDir.exists())fileDir.mkdirs();
-//
-//        for (MultipartFile mf : fileList){
-//            String originFileName = mf.getOriginalFilename();
-//            long fileSize = mf.getSize();
-//
-//            System.out.println("originFileName : " + originFileName);
-//            System.out.println("fileSize : " + fileSize);
-//
-//            String safeFile = path + System.currentTimeMillis() + originFileName;
-//            System.out.println("safeFile : " + safeFile);
-//            try {
-//                mf.transferTo(new File(safeFile));
-//            }
-//            catch (IllegalStateException | IOException e) {
-//
-//                e.printStackTrace();
-//            }
-//        }
-
-//        try {
-//            String origFilename = files.getOriginalFilename();
-//            String filename = new MD5Generator(origFilename).toString();
-//            /* 실행되는 위치의 'files' 폴더에 파일이 저장됩니다. */
-//            String savePath = System.getProperty("user.dir") + "\\files";
-//            /* 파일이 저장되는 폴더가 없으면 폴더를 생성합니다. */
-//            if (!new File(savePath).exists()) {
-//                try{
-//                    new File(savePath).mkdir();
-//                }
-//                catch(Exception e){
-//                    e.getStackTrace();
-//                }
-//            }
-//            String filePath = savePath + "\\" + filename;
-//            files.transferTo(new File(filePath));
-//            Long fileId = filesService.saveFile(
-//                    FileDto.builder()
-//                    .filePath(filePath)
-//                    .originFileName(origFilename)
-//                    .fileName(filename)
-//                    .fileSize(files.getSize())
-//                    .build());
-//            projectSaveRequestDto.setFileId(fileId);
-//        } catch(Exception e) {
-//            e.printStackTrace();
-//        }
         return projectsRepository.save(projectSaveRequestDto.toEntity()).getId();
     }
 

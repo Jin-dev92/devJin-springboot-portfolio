@@ -22,13 +22,18 @@ public class Files extends BaseTimeEntity {
     private String fileName;
     @Column(nullable = false)
     private Long fileSize;
+    @Column(nullable = false)
     private String filePath;
+//    @Column(nullable = false)
+    private Long joinToId;
 
     @Builder
-    public Files(String originFileName, String fileName, Long fileSize, String filePath) {
+
+    public Files(String originFileName, String fileName, Long fileSize, String filePath, Long joinToId) {
         this.originFileName = originFileName;
         this.fileName = fileName;
         this.fileSize = fileSize;
         this.filePath = filePath;
+        this.joinToId = joinToId;
     }
 }

@@ -27,5 +27,8 @@ public class FilesService {
                 .fileSize(files.getFileSize())
                 .build();
     }
-
+    @Transactional(readOnly = true)
+    public Long lastFileCount() {
+        return filesRepository.LastFileCount();
+    }
 }
