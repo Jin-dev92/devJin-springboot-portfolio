@@ -62,7 +62,8 @@ var project = {
         contentType :false,
         cache : false,
         success: function (data) {
-            console.log("프로젝트가 추가되었습니다.");
+            alert("프로젝트가 추가되었습니다.");
+            window.location.href = '/';
         },
         error : function(e){
             console.log(e);

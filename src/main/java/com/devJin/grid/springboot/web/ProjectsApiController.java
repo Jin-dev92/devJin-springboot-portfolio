@@ -23,6 +23,7 @@ public class ProjectsApiController {
     private final ProjectService projectService;
     private final FilesService filesService;
     private final String filePath = "C:\\image\\";
+//    private final String filePath = "/img/upload/";
     // save
     @PostMapping(value = "/api/projects",   headers = ("content-type=multipart/*"))
     public Long save(ProjectSaveRequestDto requestDto , MultipartHttpServletRequest inputFiles) {
@@ -30,7 +31,7 @@ public class ProjectsApiController {
         MultipartFile thumbnail = inputFiles.getFile("thumbnail");
         Long lastCount = filesService.lastFileCount();
         if(lastCount == null)lastCount = Long.valueOf(0);
-        System.out.println(lastCount);
+
         File fileDir = new File(filePath);
         if (!fileDir.exists())fileDir.mkdirs();
         assert thumbnail != null;
@@ -71,7 +72,7 @@ public class ProjectsApiController {
         }catch (IllegalStateException | IOException e){
             e.printStackTrace();
         }
-
+        requestDto.setFileId(lastCount + 1);
         return projectService.save(requestDto);
     }
     // update
@@ -80,4 +81,6 @@ public class ProjectsApiController {
         return projectService.update(id,requestDto);
     }
     // deleteapp
+
+
 }

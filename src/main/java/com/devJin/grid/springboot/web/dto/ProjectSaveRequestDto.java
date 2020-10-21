@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Column;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -13,13 +15,15 @@ public class ProjectSaveRequestDto {
     private String title;
     private String subTitle;
     private String content;
+    private int type; // 가족용 포폴로 사용할지 아니면 개인 포폴로 사용할지
     private Long fileId;
 
     @Builder
-    public ProjectSaveRequestDto(String title, String subTitle, String content, Long fileId) {
+    public ProjectSaveRequestDto(String title, String subTitle, String content, int type, Long fileId) {
         this.title = title;
         this.subTitle = subTitle;
         this.content = content;
+        this.type = type;
         this.fileId = fileId;
     }
 
@@ -28,6 +32,7 @@ public class ProjectSaveRequestDto {
                     .title(title)
                     .subTitle(subTitle)
                     .content(content)
+                    .type(type)
                     .fileId(fileId)
                     .build();
     }

@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ProjectsRepository extends JpaRepository<Projects,Long> {
 
-//    @Query("SELECT * FROM projects p ORDER BY p.id DESC")
-//    List<Projects> findAllByDesc();
+    @Query(value = "SELECT * FROM projects p ORDER BY p.id DESC" , nativeQuery = true)
+    List<Projects> findAllByDesc();
 }

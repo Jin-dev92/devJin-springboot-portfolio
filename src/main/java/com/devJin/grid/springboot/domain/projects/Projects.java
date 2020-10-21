@@ -20,26 +20,24 @@ public class Projects {
     @Column(nullable = false)
     private String content;
     @Column(nullable = false)
-    private int type;
-    private String thumbnail;
-    private Long fileId;
+    private int type; // 가족용 포폴로 사용할지 아니면 개인 포폴로 사용할지
+    @Column(nullable = false)
+    private Long fileId; // 많은 이미지 파일을 묶기 위해서 id를 사용
 
     @Builder
-    public Projects(String title, String subTitle, String content, int type, String thumbnail, Long fileId) {
+    public Projects(String title, String subTitle, String content, int type, Long fileId) {
         this.title = title;
         this.subTitle = subTitle;
         this.content = content;
         this.type = type;
-        this.thumbnail = thumbnail;
         this.fileId = fileId;
     }
 
-    public void update(String title, String subTitle, String content, int type, String thumbnail, Long fileId){
+    public void update(String title, String subTitle, String content, int type, Long fileId){
         this.title = title;
         this.subTitle = subTitle;
         this.content = content;
         this.type = type;
-        this.thumbnail = thumbnail;
         this.fileId = fileId;
     }
 }
