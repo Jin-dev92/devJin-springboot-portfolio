@@ -31,7 +31,8 @@ public class ProjectsApiController {
         MultipartFile thumbnail = inputFiles.getFile("thumbnail");
         Long lastCount = filesService.lastFileCount();
         if(lastCount == null)lastCount = Long.valueOf(0);
-
+        //String realPath = inputFiles.getSession().getServletContext().getRealPath("/");
+        //System.out.println(realPath);
         File fileDir = new File(filePath);
         if (!fileDir.exists())fileDir.mkdirs();
         assert thumbnail != null;

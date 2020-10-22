@@ -1,3 +1,6 @@
 # Project exclude paths
 /.gradle/
 .idea
+
+# 보안 관련
+application-oauth.properties
