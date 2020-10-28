@@ -22,6 +22,7 @@ import java.util.Collections;
 @Service
 public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
     private final UserRepository userRepository;
+//    @LoginUser
     private final HttpSession httpSession;
 
     @Override
@@ -41,7 +42,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         *  바로 아래에서 이 클래스의 코드가 나오니 차례로 생성하시면 됩니다.
         * */
         User user = saveOrUpdate(attributes);
-//        httpSession.setAttribute("user",new SessionUser(user));
+        httpSession.setAttribute("user",new SessionUser(user));
         /* 세션에 사용자 정보를 저장하기 위한 Dto 클래스 입니다.
         *  왜 User 클래스를 쓰지 않고 새로 만들어서 쓰는것인지?
         * -> 세션에 저장하기 위해 User 클래스를 바로 사용하면 User 클래스에 직렬화를 구현하지 않았다는 의미의 에러가 뜬다.(Failed to convert from type [java.lang.Object] to type [byte[]] for value ..)
