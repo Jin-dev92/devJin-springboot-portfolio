@@ -38,4 +38,11 @@ public class ProjectService {
     public List<ProjectsListDto> findAllDesc(){
         return projectsRepository.findAllByDesc().stream().map(ProjectsListDto::new).collect(Collectors.toList());
     }
+
+    @Transactional(readOnly = true)
+    public List<ProjectsListDto> findAllbyDescFromGallery(){
+        return projectsRepository.findAllbyDescFromGallery().stream().map(ProjectsListDto::new).collect(Collectors.toList());
+    }
+
+
 }

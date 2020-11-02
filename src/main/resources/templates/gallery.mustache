@@ -1,0 +1,32 @@
+{{>layout/header}}
+<main class="page projects-page">
+    <section class="portfolio-block projects compact-grid">
+        <div class="heading">
+            <h2>Recent Work</h2>
+        </div>
+        <!-- galleryList -->
+        {{galleryList}}
+        <div class="row no-gutters">
+            {{#galleryList}}
+            <div class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src=""><span class="description"><span class="description-heading">{{title}}</span><span class="description-body">{{content}}</span></span></a></div>
+            {{/galleryList}}
+            <div
+                    class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="/img/nature/image2.jpg"><span class="description"><span class="description-heading">Lorem Ipsum</span><span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></span></a></div>
+            <div
+                    class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="/img/nature/image3.jpg"><span class="description"><span class="description-heading">Lorem Ipsum</span><span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></span></a></div>
+            <div
+                    class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="/img/nature/image4.jpg"><span class="description"><span class="description-heading">Lorem Ipsum</span><span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></span></a></div>
+            <div
+                    class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="/img/nature/image5.jpg"><span class="description"><span class="description-heading">Lorem Ipsum</span><span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></span></a></div>
+            <div
+                    class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="/img/nature/image6.jpg"><span class="description"><span class="description-heading">Lorem Ipsum</span><span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></span></a></div>
+            <div
+                    class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="/img/nature/image7.jpg"><span class="description"><span class="description-heading">Lorem Ipsum</span><span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></span></a></div>
+            <div
+                    class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="/img/nature/image8.jpg"><span class="description"><span class="description-heading">Lorem Ipsum</span><span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></span></a></div>
+            <div
+                    class="col-md-6 col-lg-4 item zoom-on-hover"><a href="#"><img class="img-fluid image" src="/img/nature/image9.jpg"><span class="description"><span class="description-heading">Lorem Ipsum</span><span class="description-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></span></a></div>
+        </div>
+    </section>
+</main>
+{{>layout/footer}}

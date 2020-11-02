@@ -29,11 +29,14 @@ public class IndexController {
         }
         return "index";
     }
-//    @GetMapping("/login")
-//    public String login(){
-//        return "login";
-//    }
-
+    @GetMapping("/admin")
+    public String admin(){
+        return "admin";
+    }
+    //@GetMapping("/gallery")
+    //public String gallery(){
+        //return "gallery";
+    //}
     @GetMapping("/project-save")
     public String ProjectSave(){
         return "project-save";
