@@ -10,11 +10,17 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
@@ -24,6 +30,7 @@ public class ProjectsApiTestController {
     private int port;
     @Autowired
     private TestRestTemplate restTemplate;
+    @Mock
     private ProjectsRepository projectsRepository;
     private ProjectService projectService;
     @Before
@@ -45,21 +52,36 @@ public class ProjectsApiTestController {
     @Test
     public void 프로젝트가_무사히_등록되는지(){
         //given
-/*        FileDto fileDto = FileDto.builder()
+        String filePath = "c:/image";
+        File fileDir = new File(filePath);
+        if (!fileDir.exists())fileDir.mkdirs();
+
+        FileDto fileDto = FileDto.builder()
                 .originFileName("ㅇㅇㅇㅇ")
-                .fileName("파일이름")
-                .fileSize(100)
-                .filePath("어딘가엔 저장된다")
-                .build();*/
+                .fileName("ㅇㅇㅇㅇ.txt")
+                .fileSize(10L)
+                .filePath(filePath)
+                .build();
+        FileDto fileDto2 = FileDto.builder()
+                .originFileName("dddd")
+                .fileName("dddd.txt")
+                .fileSize(10L)
+                .filePath(filePath)
+                .build();
+        List<Files> filesList = new ArrayList<Files>();
+        filesList.add(fileDto.toEntity());
+        filesList.add(fileDto2.toEntity());
+
         ProjectSaveRequestDto saveRequestDto = ProjectSaveRequestDto.builder()
                                             .title("제목")
                                             .subTitle("부제목")
                                             .content("내용")
                                             .type(1)
-//                                            .files()
+                                            .files(filesList)
                                             .build();
         projectService.save(saveRequestDto);
         //when
+
         //then
     }
 
