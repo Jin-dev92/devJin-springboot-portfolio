@@ -2,6 +2,7 @@ package com.devJin.grid.springboot.domain.files;
 
 
 import com.devJin.grid.springboot.domain.BaseTimeEntity;
+import com.devJin.grid.springboot.domain.projects.Projects;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,16 +25,15 @@ public class Files extends BaseTimeEntity {
     private Long fileSize;
     @Column(nullable = false)
     private String filePath;
-//    @Column(nullable = false)
-    private Long joinToId;
+    @Column(nullable = false)
+    private Long projectId;
 
     @Builder
-
-    public Files(String originFileName, String fileName, Long fileSize, String filePath, Long joinToId) {
+    public Files(String originFileName, String fileName, Long fileSize, String filePath, Long projectId) {
         this.originFileName = originFileName;
         this.fileName = fileName;
         this.fileSize = fileSize;
         this.filePath = filePath;
-        this.joinToId = joinToId;
+        this.projectId = projectId;
     }
 }

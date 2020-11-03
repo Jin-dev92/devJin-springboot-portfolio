@@ -49,6 +49,10 @@ dependencies {
     * */
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
+    /*
+        톰캣 서버
+    * */
+    compile('org.springframework.boot:spring-boot-starter-tomcat')
     /* 테스트용 의존성
     * */
     testCompile('org.springframework.boot:spring-boot-starter-test')

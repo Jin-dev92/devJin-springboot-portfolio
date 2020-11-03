@@ -15,15 +15,15 @@ public class FileDto {
     private String fileName;
     private Long fileSize;
     private String filePath;
-    private Long joinToId;
+    private Long projectId;
 
     @Builder
-    public FileDto(String originFileName, String fileName, Long fileSize, String filePath, Long joinToId) {
+    public FileDto(String originFileName, String fileName, Long fileSize, String filePath, Long projectId) {
         this.originFileName = originFileName;
         this.fileName = fileName;
         this.fileSize = fileSize;
         this.filePath = filePath;
-        this.joinToId = joinToId;
+        this.projectId = projectId;
     }
 
     public Files toEntity(){
@@ -32,7 +32,7 @@ public class FileDto {
                 .fileName(fileName)
                 .fileSize(fileSize)
                 .filePath(filePath)
-                .joinToId(joinToId)
+                .projectId(projectId)
                 .build();
     }
 }

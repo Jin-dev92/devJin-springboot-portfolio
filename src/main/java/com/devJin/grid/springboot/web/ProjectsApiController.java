@@ -28,35 +28,35 @@ public class ProjectsApiController {
     @PostMapping(value = "/api/projects",   headers = ("content-type=multipart/*"))
     public Long save(ProjectSaveRequestDto requestDto , MultipartHttpServletRequest inputFiles) {
         List<MultipartFile> fileList = inputFiles.getFiles("fileList");
-        MultipartFile thumbnail = inputFiles.getFile("thumbnail");
-        Long lastCount = filesService.lastFileCount();
-        if(lastCount == null)lastCount = Long.valueOf(0);
+        //MultipartFile thumbnail = inputFiles.getFile("thumbnail");
+//        Long lastCount = filesService.lastFileCount();
+        //if(lastCount == null)lastCount = Long.valueOf(0);
         //String realPath = inputFiles.getSession().getServletContext().getRealPath("/");
         //System.out.println(realPath);
         File fileDir = new File(filePath);
         if (!fileDir.exists())fileDir.mkdirs();
-        assert thumbnail != null;
-
+        //assert thumbnail != null;
         for (MultipartFile mf : fileList){
             String originFileName = mf.getOriginalFilename();
             long fileSize = mf.getSize();
             String fileName = System.currentTimeMillis() + originFileName;
             String safeFile = filePath + fileName;
             try {
-                mf.transferTo(new File(safeFile)); // 파일을 서버에 저장
+                mf.transferTo(new File(safeFile)); // 파일을 서버에 복사
                 filesService.saveFile( // 파일 정보를 데이터 베이스에 저장
                         FileDto.builder()
                                 .originFileName(originFileName)
                                 .fileName(fileName)
                                 .fileSize(fileSize)
                                 .filePath(filePath+fileName)
-                                .joinToId(lastCount + 1)
+                                .projectId(requestDto.getId())
                                 .build());
             }
             catch (IllegalStateException | IOException e) {
                 e.printStackTrace();
             }
         }
+        /*
         String thumb_originName = thumbnail.getOriginalFilename();
         String saved_fileName = System.currentTimeMillis() + thumb_originName;
         long thumb_size = thumbnail.getSize();
@@ -68,12 +68,12 @@ public class ProjectsApiController {
                             .fileName(saved_fileName)
                             .fileSize(thumb_size)
                             .filePath(filePath + saved_fileName)
-                            .joinToId(lastCount + 1)
+                            .projectId(lastCount + 1)
                             .build());
         }catch (IllegalStateException | IOException e){
             e.printStackTrace();
         }
-        requestDto.setFileId(lastCount + 1);
+        */
         return projectService.save(requestDto);
     }
     // update
