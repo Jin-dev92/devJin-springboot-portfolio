@@ -28,11 +28,6 @@ public class ProjectsApiController {
     @PostMapping(value = "/api/projects",   headers = ("content-type=multipart/*"))
     public Long save(ProjectSaveRequestDto requestDto , MultipartHttpServletRequest inputFiles) {
         List<MultipartFile> fileList = inputFiles.getFiles("fileList");
-        //MultipartFile thumbnail = inputFiles.getFile("thumbnail");
-//        Long lastCount = filesService.lastFileCount();
-        //if(lastCount == null)lastCount = Long.valueOf(0);
-        //String realPath = inputFiles.getSession().getServletContext().getRealPath("/");
-        //System.out.println(realPath);
         File fileDir = new File(filePath);
         if (!fileDir.exists())fileDir.mkdirs();
         //assert thumbnail != null;
@@ -56,24 +51,6 @@ public class ProjectsApiController {
                 e.printStackTrace();
             }
         }
-        /*
-        String thumb_originName = thumbnail.getOriginalFilename();
-        String saved_fileName = System.currentTimeMillis() + thumb_originName;
-        long thumb_size = thumbnail.getSize();
-        try {
-            thumbnail.transferTo(new File(filePath + saved_fileName));
-            filesService.saveFile( // 파일 정보를 데이터 베이스에 저장
-                    FileDto.builder()
-                            .originFileName(thumb_originName)
-                            .fileName(saved_fileName)
-                            .fileSize(thumb_size)
-                            .filePath(filePath + saved_fileName)
-                            .projectId(lastCount + 1)
-                            .build());
-        }catch (IllegalStateException | IOException e){
-            e.printStackTrace();
-        }
-        */
         return projectService.save(requestDto);
     }
     // update

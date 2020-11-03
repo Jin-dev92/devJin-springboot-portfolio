@@ -25,7 +25,7 @@ public class Files extends BaseTimeEntity {
     private Long fileSize;
     @Column(nullable = false)
     private String filePath;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "project_id")
     private Long projectId;
 
     @Builder

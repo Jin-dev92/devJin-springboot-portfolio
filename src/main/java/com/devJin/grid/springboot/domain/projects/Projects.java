@@ -25,7 +25,7 @@ public class Projects {
     @Column(nullable = false)
     private int type; // 가족용 포폴로 사용할지 아니면 개인 포폴로 사용할지
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL,targetEntity = Files.class)
-    @JoinColumn(name = "projectId")
+    @JoinColumn(name = "project_id")
     private List<Files> files;
 
     @Builder
