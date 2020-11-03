@@ -29,14 +29,13 @@ public class Projects {
     private List<Files> files;
 
     @Builder
-    public Projects(Long id, String title, String subTitle, String content, int type, List<Files> files) {
-        this.id = id;
+    public Projects(String title, String subTitle, String content, int type) {
         this.title = title;
         this.subTitle = subTitle;
         this.content = content;
         this.type = type;
-        this.files = files;
     }
+
 
     public void update(String title, String subTitle, String content, int type, List<Files> files){
         this.title = title;
